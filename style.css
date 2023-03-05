@@ -1,6 +1,7 @@
 :root {
   --primary: hsl(108, 99%, 34%);
-  --text-400: hsl(137, 12%, 45%);
+  --text-normal: hsl(137, 12%, 45%);
+  --text-dark: hsl(167, 100%, 12%);
 
   --clr-border: hsl(127, 11%, 85%);
 }
@@ -149,20 +150,25 @@ h6 {
 
 body {
   font-family: "Gellix", sans-serif;
-  color: var(--text-400);
+  color: var(--text-normal);
 }
 
 button {
+  padding: 0;
+  border: none;
+  outline-color: transparent;
+  font: inherit;
+  color: inherit;
   background: none;
-  border-style: none;
+  cursor: pointer;
 }
 
-/* Navbar */
 ul {
   list-style-type: none;
   padding: 0;
-  font-size: 16px;
 }
+
+/* Navbar */
 
 .navbar-wrapper {
   position: fixed;
@@ -179,9 +185,8 @@ ul {
   align-items: center;
   justify-content: space-between;
 
-  width: 95%;
   max-width: 1360px;
-  padding: 15px 0px;
+  padding: 15px 20px;
   margin: auto;
 
   font-weight: 500;
@@ -229,9 +234,6 @@ ul {
   display: none;
 }
 
-.test {
-  font-size: 120px;
-}
 /* navbar mobile */
 .navbar__nav-mobile {
   position: absolute;
@@ -239,12 +241,12 @@ ul {
   top: 100%;
   left: 0;
   width: 100%;
-  background-color: white;
 
-  overflow: auto;
+  overflow: scroll;
   height: 80vh;
-  margin-top: 0;
   padding: 20px 40px;
+  font-size: 18px;
+
   background-color: #fff;
   box-shadow: 0 8px 50px 0 rgb(0 0 0 / 5%);
   transform: translateY(0%);
@@ -257,8 +259,6 @@ ul {
 }
 
 .navbar__accordion {
-  width: 90%;
-  margin: auto;
   border-bottom: 1px solid var(--clr-border);
 }
 
@@ -282,7 +282,7 @@ ul {
 
 .navbar__accordion-items > li {
   padding: 6px 5px 6px 0;
-  transition: color 150ms ease;
+  transition: color 50ms ease;
   cursor: pointer;
 }
 
@@ -291,14 +291,18 @@ ul {
 }
 
 .navbar__accordion-arrow {
-  transform: rotate(0deg);
+  transform: rotate(180deg);
   transition: transform 200ms ease-in-out;
 }
 
 .navbar__accordion-title {
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.navbar__accordion-btn[data-accordion="true"] .navbar__accordion-title {
   color: var(--primary);
-  transition: color 200ms ease-in-out;
+  transition: color 150ms ease-in-out;
 }
 
 .navbar__accordion.hide .navbar__accordion-items {
@@ -306,11 +310,17 @@ ul {
 }
 
 .navbar__accordion.hide .navbar__accordion-arrow {
-  transform: rotate(180deg);
+  transform: rotate(0deg);
 }
 
 .navbar__accordion.hide .navbar__accordion-title {
-  color: var(--text-400);
+  color: var(--text-dark);
+}
+
+.navbar__accordion-btn:not([data-accordion="true"]):hover
+  .navbar__accordion-title {
+  transition: none;
+  color: var(--primary);
 }
 
 /* navbar buttons mobile */
@@ -319,9 +329,6 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 24px;
-
-  width: 90%;
-  margin: auto;
 }
 
 .login-btn {
