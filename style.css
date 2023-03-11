@@ -1,7 +1,7 @@
 :root {
   --primary: hsl(108, 99%, 34%);
-  --text-normal: hsl(137, 12%, 45%);
-  --text-dark: hsl(167, 100%, 12%);
+  --text-normal: #65816d;
+  --text-dark: #003c2f;
 
   --clr-border: hsl(127, 11%, 85%);
 }
@@ -151,6 +151,7 @@ h6 {
 body {
   font-family: "Gellix", sans-serif;
   color: var(--text-normal);
+  font-size: 18px;
 }
 
 button {
@@ -168,16 +169,20 @@ ul {
   padding: 0;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 /* Navbar */
 
+/* navbar desktop */
 .navbar-wrapper {
   position: fixed;
-  z-index: 10;
+  z-index: 11;
   top: 0;
   left: 0;
   width: 100%;
-
-  background-color: white;
 }
 
 .navbar {
@@ -185,6 +190,7 @@ ul {
   align-items: center;
   justify-content: space-between;
 
+  width: 100%;
   max-width: 1360px;
   padding: 15px 20px;
   margin: auto;
@@ -197,29 +203,8 @@ ul {
   display: flex;
 }
 
-.navbar-nav {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  gap: 100px;
-}
-
-.sub-menu-wrapper {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: white;
-}
-
-.sub-menu {
-  display: flex;
-  width: 90%;
-  max-width: 1360px;
-  margin: auto;
-  background-color: white;
-  border-top: 1px solid var(--clr-border);
+.navbar-logo {
+  width: 120px;
 }
 
 .navbar-nav > li:hover .sub-menu-wrapper {
@@ -227,11 +212,132 @@ ul {
 }
 
 .navbar-nav > li {
-  padding: 20px;
+  padding: 24px 16px;
+  cursor: pointer;
+}
+
+.navbar-nav > li:hover .menu-link {
+  color: var(--primary);
+}
+
+.menu-link {
+  transition: color 150ms ease;
+}
+
+.navbar-nav {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin-left: 60px;
 }
 
 .navbar__buttons {
   display: none;
+}
+
+.navbar__buttons .start {
+  background-color: #22ad01;
+  color: #fff;
+  font-weight: 500;
+  padding: 7px 20px;
+  border-radius: 36px;
+
+  transition: background-color 0.3s;
+}
+
+.navbar__buttons .login {
+  background-color: #fff;
+  font-weight: 500;
+  padding: 7px 20px;
+  border-radius: 36px;
+
+  transition: background-color 0.3s;
+}
+
+.login:hover {
+  background-color: #f2f7f2;
+}
+
+.start:hover {
+  background-color: #2bb90a;
+}
+
+/* sub menu */
+.sub-menu-wrapper {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  cursor: auto;
+}
+
+.sub-menu {
+  display: flex;
+  margin: auto;
+  padding: 50px 40px;
+  box-shadow: 0 10px 2px 2px black;
+  /* Prevents from disappearing when scrolling past menu link border! */
+  transform: translateY(-1px);
+}
+
+.sub-menu-item {
+  flex: 1;
+}
+
+.sub-menu-item-title {
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 28px;
+}
+
+.sub-menu-item-title + ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sub-menu-item-title + ul li {
+  transition: color 150ms ease;
+  cursor: pointer;
+}
+
+.sub-menu-item-title + ul li:hover {
+  color: var(--primary);
+}
+
+.sub-menu-item-title.whats-new {
+  margin: 0;
+}
+
+.image-wrapper-whats-new {
+  overflow: hidden;
+  width: 128px;
+  height: 92px;
+  border-radius: 2px;
+
+  background-color: #f2f7f2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 6px 0;
+}
+
+.image-wrapper-whats-new img {
+  width: 80%;
+  box-shadow: -7px 19px 20px -4px rgb(0 0 0 / 11%);
+  border-top-left-radius: 10px;
+}
+
+.sub-menu-item-link {
+  display: block;
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 /* navbar mobile */
@@ -245,7 +351,6 @@ ul {
   overflow: scroll;
   height: 80vh;
   padding: 20px 40px;
-  font-size: 18px;
 
   background-color: #fff;
   box-shadow: 0 8px 50px 0 rgb(0 0 0 / 5%);
@@ -357,11 +462,20 @@ ul {
 }
 
 @media (min-width: 1100px) {
-  .navbar {
-    padding: 0;
+  .navbar__nav-mobile {
+    display: none;
   }
 
-  .navbar__menu-btn {
+  .navbar-wrapper {
+    padding: 0 40px;
+  }
+
+  .navbar {
+    padding: 0;
+    border-bottom: 1px solid #e6eae8;
+  }
+
+  .navbar__hamburger-btn {
     display: none;
   }
 
