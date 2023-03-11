@@ -269,17 +269,24 @@ a {
   top: 100%;
   left: 0;
   width: 100%;
+  padding: 0px 40px;
+
   background-color: white;
   cursor: auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 20px 55px -30px;
 }
 
 .sub-menu {
   display: flex;
   margin: auto;
-  padding: 50px 40px;
-  box-shadow: 0 10px 2px 2px black;
+  max-width: 1360px;
+  padding: 50px 0;
   /* Prevents from disappearing when scrolling past menu link border! */
   transform: translateY(-1px);
+}
+
+.last-sub-menu {
+  padding: 0;
 }
 
 .sub-menu-item {
@@ -338,6 +345,102 @@ a {
   color: var(--primary);
   text-decoration: underline;
   text-decoration-thickness: 2px;
+}
+
+.sub-menu-categories {
+  display: flex;
+  flex-direction: column;
+
+  border-right: 1px solid #e6eae8;
+  min-width: 330px;
+  padding: 12px 12px 0 0;
+}
+
+.sub-menu-category {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sub-menu-category-title {
+  font-weight: 500;
+  color: #222;
+}
+
+.sub-menu-category-btn {
+  width: 20px;
+}
+
+.sub-menu-category-arrow {
+  display: none;
+  fill: var(--primary);
+}
+
+.sub-menu-category.active {
+  background-color: #f2f7f2;
+}
+
+.sub-menu-category.active .sub-menu-category-arrow {
+  display: block;
+}
+
+.sub-menu-category.active .sub-menu-category-title {
+  color: var(--primary);
+}
+
+.sub-menu-category:hover .sub-menu-category-title {
+  color: var(--primary);
+}
+
+.featured-templates-container {
+  display: grid;
+}
+
+.featured-templates-wrapper {
+  grid-row: 1;
+  grid-column: 1;
+
+  display: flex;
+  flex-direction: column;
+  padding: 20px 60px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 250ms ease;
+}
+
+.featured-templates-wrapper.active {
+  visibility: visible;
+  opacity: 1;
+  transition: all 250ms ease 250ms;
+}
+
+.featured-templates-title {
+  opacity: 0.5;
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.featured-templates {
+  display: flex;
+}
+.featured-template-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.featured-templates-see-all {
+  align-self: center;
+  color: var(--primary);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
 }
 
 /* navbar mobile */
