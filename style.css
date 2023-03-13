@@ -1,5 +1,7 @@
 :root {
   --primary: hsl(108, 99%, 34%);
+  --secondary: #f2f7f2;
+
   --text-normal: #65816d;
   --text-dark: #003c2f;
 
@@ -150,8 +152,9 @@ h6 {
 
 body {
   font-family: "Gellix", sans-serif;
-  color: var(--text-normal);
+  color: var(--text-dark);
   font-size: 18px;
+  font-weight: 500;
 }
 
 button {
@@ -197,6 +200,7 @@ a {
 
   font-weight: 500;
   background: #fff;
+  color: var(--text-normal);
 }
 
 .navbar-collapse {
@@ -585,5 +589,97 @@ a {
   .navbar__buttons,
   .navbar-nav {
     display: flex;
+  }
+}
+
+/* Plan section */
+
+.container {
+  padding-top: 120px;
+}
+
+.section {
+  padding: 0 20px;
+}
+
+.plan-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.plan-section__header {
+  font-size: 42px;
+  line-height: 1;
+  text-align: center;
+}
+
+/* toggle */
+
+.plan-section__toggle {
+  --toggle-padding: 4px;
+
+  position: relative;
+  display: flex;
+  /* gap: 50px; */
+  width: fit-content;
+  padding: var(--toggle-padding);
+  background-color: var(--secondary);
+  border-radius: 40px;
+  font-size: 15px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.plan-section__toggle[data-type="monthly"] .toggle__monthly {
+  color: #fff;
+}
+
+.plan-section__toggle[data-type="yearly"] .toggle__yearly {
+  color: #fff;
+}
+
+.toggle__monthly,
+.toggle__yearly-wrapper {
+  padding: 20px;
+  z-index: 10;
+}
+.toggle__free {
+  z-index: 10;
+}
+
+.toggle__monthly,
+.toggle__yearly {
+  transition: color 300ms ease;
+}
+
+.toggle__yearly-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.toggle__free {
+  padding: 2px 10px;
+  background-color: #fff;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 12px;
+}
+
+.toggle__switch {
+  position: absolute;
+  top: var(--toggle-padding);
+  bottom: var(--toggle-padding);
+  background-color: var(--text-dark);
+  border-radius: 30px;
+  transition: all 200ms ease-out;
+}
+
+@media (min-width: 850px) {
+  .plan-section__header {
+    font-size: 70px;
   }
 }
