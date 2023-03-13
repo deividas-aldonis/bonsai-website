@@ -186,6 +186,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
+  background-color: #fff;
 }
 
 .navbar {
@@ -575,6 +576,7 @@ a {
 
   .navbar-wrapper {
     padding: 0 40px;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 20px 55px -30px; */
   }
 
   .navbar {
@@ -611,6 +613,7 @@ a {
 
 .plan-section__header {
   font-size: 42px;
+  max-width: 640px;
   line-height: 1;
   text-align: center;
 }
@@ -681,5 +684,116 @@ a {
 @media (min-width: 850px) {
   .plan-section__header {
     font-size: 70px;
+  }
+}
+
+/* Plans */
+
+.plans {
+  width: 100%;
+}
+
+.plans-monthly {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+.plan {
+  padding: 30px 30px 40px;
+  max-width: 560px;
+  width: 100%;
+  align-self: center;
+  border-radius: 12px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.plan.special {
+  border: 6px solid #ee8146;
+  background-color: rgba(238, 129, 70, 0.1);
+  background-color: rgba(101, 129, 109, 0.1);
+}
+
+.plan-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 700;
+}
+
+.plan-type {
+  font-size: 30px;
+}
+
+.price-number {
+  font-size: 40px;
+  margin: 0 8px;
+}
+
+.money-sign {
+  font-size: 24px;
+}
+
+.plan-recurrence {
+  color: var(--text-normal);
+  opacity: 0.5;
+}
+
+.plan-btn {
+  padding: 12px 56px 14px;
+  margin: 16px 0;
+  border-style: none;
+  border-radius: 36px;
+  background-color: #22ad01;
+
+  color: #fff;
+  line-height: 140%;
+  font-weight: 500;
+}
+
+.plan-for {
+  color: var(--text-normal);
+  font-size: 16px;
+  font-weight: 400;
+  max-width: 250px;
+}
+
+.separator {
+  border-bottom: 1px solid #e5e9e6;
+  margin: 30px 0 10px;
+}
+
+.plan-detail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.plan-detail {
+  display: flex;
+  align-items: center;
+}
+
+.plan-detail-info {
+  margin-left: 20px;
+  text-align: left;
+}
+
+@media (min-width: 1100px) {
+  .container {
+    padding-top: 220px;
+  }
+
+  .plans-monthly {
+    flex-direction: row;
+  }
+
+  .plan {
+    align-self: auto;
   }
 }
